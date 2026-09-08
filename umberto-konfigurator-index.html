@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Umberto Geldern – Catering Konfigurator</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f5f3ef;color:#222;font-family:Arial,sans-serif}
+#app{max-width:760px;margin:20px auto;padding:12px}.card{background:#fff;border-radius:18px;padding:24px;box-shadow:0 8px 30px #00000012}
+.head{text-align:center}.logo{font-size:12px;letter-spacing:3px;font-weight:700}.head h1{font-size:29px;margin:8px 0}.head p,.intro{color:#666;line-height:1.5}
+.progress{display:flex;gap:5px;margin:24px 0}.progress i{height:5px;flex:1;background:#ddd;border-radius:9px}.progress i.on{background:#222}
+.step{display:none}.step.active{display:block}.step h2{font-size:24px}
+.num{display:flex;align-items:center;justify-content:center;gap:18px;margin:28px 0}.num button{width:48px;height:48px;border:1px solid #ccc;border-radius:50%;background:#fff;font-size:24px}.num input{width:90px;text-align:center;font-size:27px;padding:9px;border:1px solid #ccc;border-radius:10px}
+.quick{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}.quick button,.back{background:#fff;border:1px solid #ccc}
+.quick button{padding:9px 15px;border-radius:20px}
+.options{display:grid;gap:12px}.option{display:block;border:1px solid #ddd;border-radius:14px;padding:15px;cursor:pointer}.option.sel{border-color:#222;background:#fafafa}.title{font-weight:700;font-size:17px}.price{color:#666;margin-top:5px}
+.note,.summary{background:#f7f6f3;border-radius:12px;padding:14px;margin-top:14px;line-height:1.55}
+.form{display:grid;gap:13px}.form label{font-weight:700;font-size:14px}.form input,.form textarea{display:block;width:100%;margin-top:6px;padding:12px;border:1px solid #ccc;border-radius:10px;font-size:16px}.form textarea{min-height:100px}
+.buttons{display:flex;gap:10px;margin-top:22px}.buttons button{flex:1;padding:14px;border-radius:10px;font-size:16px}.next,.submit{background:#222;color:#fff;border:1px solid #222}.total{font-size:23px;font-weight:700;border-top:1px solid #ddd;margin-top:13px;padding-top:13px}.error{color:#a00;margin-top:10px}.success{display:none;background:#eef8ee;padding:15px;border-radius:12px;margin-top:15px}
+@media(max-width:600px){.card{padding:19px}.head h1{font-size:25px}}
+</style>
+</head>
+<body>
+<div id="app"><div class="card">
+<div class="head"><div class="logo">UMBERTO · GELDERN</div><h1>Ihre Feier ganz einfach planen</h1><p>Stellen Sie Ihre Feier Schritt für Schritt zusammen und erhalten Sie eine unverbindliche Kostenschätzung.</p></div>
+<div class="progress"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+
+<section class="step active">
+<h2>Wie viele Gäste erwarten Sie?</h2><p class="intro">Geben Sie zunächst die ungefähre Gästezahl an.</p>
+<div class="num"><button onclick="chg(-1)">−</button><input id="guests" type="number" min="10" max="300" value="20"><button onclick="chg(1)">+</button></div>
+<div class="quick"><button onclick="setG(20)">20</button><button onclick="setG(30)">30</button><button onclick="setG(50)">50</button><button onclick="setG(75)">75</button><button onclick="setG(100)">100</button></div>
+<div class="buttons"><button class="next" onclick="next()">Weiter</button></div>
+</section>
+
+<section class="step">
+<h2>Wann findet Ihre Feier statt?</h2><p class="intro">Wählen Sie Datum und Uhrzeit.</p>
+<div class="form"><label>Datum<input id="date" type="date"></label><label>Uhrzeit<input id="time" type="time"></label></div>
+<div class="buttons"><button class="back" onclick="prev()">Zurück</button><button class="next" onclick="next()">Weiter</button></div>
+</section>
+
+<section class="step">
+<h2>Welche Location möchten Sie?</h2><p class="intro">Wählen Sie den gewünschten Bereich.</p>
+<div class="options">
+<label class="option sel"><input type="radio" name="loc" value="350" data-name="Location" checked> <span class="title">Location</span><div class="price">350 € pauschal</div></label>
+<label class="option"><input type="radio" name="loc" value="450" data-name="Location + Außenbereich"> <span class="title">Location + Außenbereich</span><div class="price">450 € pauschal</div></label>
+</div>
+<div class="note">Der Außenbereich ist erforderlich, wenn Sie das Grill-Erlebnis auswählen möchten.</div>
+<div class="buttons"><button class="back" onclick="prev()">Zurück</button><button class="next" onclick="next()">Weiter</button></div>
+</section>
+
+<section class="step">
+<h2>Wie möchten Sie Ihre Gäste bewirten?</h2><p class="intro">Wählen Sie Ihr Catering.</p>
+<div class="options">
+<label class="option sel"><input type="radio" name="food" value="32.90" data-name="Italienisches Buffet" checked> <span class="title">Italienisches Buffet</span><div class="price">32,90 € pro Person</div></label>
+<label class="option"><input type="radio" name="food" value="29.90" data-name="Deutsches Buffet"> <span class="title">Deutsches Buffet</span><div class="price">29,90 € pro Person</div></label>
+<label class="option"><input id="pizza" type="checkbox" value="15.90"> <span class="title">Pizza-Erlebnis</span><div class="price">15,90 € pro Person</div></label>
+<label class="option"><input id="grill" type="checkbox" value="12.90"> <span class="title">Grill-Erlebnis</span><div class="price">12,90 € pro Person</div></label>
+</div>
+<div class="note"><b>Wichtig beim Pizza-Erlebnis:</b><br>Der Pizzaofen darf ausschließlich von einem professionellen Pizzabäcker von Umberto bedient werden. Gäste dürfen den Pizzaofen nicht selbst bedienen.</div>
+<div class="note"><b>Grill-Erlebnis:</b><br>Nur in Verbindung mit dem Außenbereich.</div>
+<div class="buttons"><button class="back" onclick="prev()">Zurück</button><button class="next" onclick="next()">Weiter</button></div>
+</section>
+
+<section class="step">
+<h2>Ihre Anfrage</h2><p class="intro">Prüfen Sie Ihre Angaben und senden Sie uns Ihre unverbindliche Anfrage.</p>
+<div class="summary" id="summary"></div>
+<div class="form">
+<label>Ihr Name *<input id="name" placeholder="Vor- und Nachname"></label>
+<label>Telefon *<input id="phone" type="tel" placeholder="Ihre Telefonnummer"></label>
+<label>E-Mail *<input id="email" type="email" placeholder="Ihre E-Mail-Adresse"></label>
+<label>Nachricht / besondere Wünsche<textarea id="message" placeholder="z. B. Anlass oder weitere Wünsche"></textarea></label>
+</div>
+<div id="error" class="error"></div>
+<div class="buttons"><button class="back" onclick="prev()">Zurück</button><button class="submit" onclick="send()">Anfrage vorbereiten</button></div>
+<div id="success" class="success"><b>Vielen Dank!</b><br>Ihre Anfrage wurde vorbereitet. Die echte E-Mail-Übermittlung wird im nächsten Cloudflare-Schritt verbunden.</div>
+</section>
+</div></div>
+<script>
+let s=0,steps=document.querySelectorAll('.step'),bars=document.querySelectorAll('.progress i');
+function show(){steps.forEach((x,i)=>x.classList.toggle('active',i===s));bars.forEach((x,i)=>x.classList.toggle('on',i<=s));if(s===4)summary();scrollTo(0,0)}
+function next(){
+if(s===0){let g=+guests.value;if(g<10||g>300)return alert('Bitte 10 bis 300 Gäste eingeben.')}
+if(s===1&&(!date.value||!time.value))return alert('Bitte Datum und Uhrzeit auswählen.');
+if(s===3&&grill.checked&&!document.querySelector('input[name=loc]:checked').dataset.name.includes('Außenbereich'))return alert('Das Grill-Erlebnis ist nur mit Außenbereich möglich.');
+if(s<4){s++;show()}}
+function prev(){if(s){s--;show()}}
+function chg(n){guests.value=Math.max(10,Math.min(300,+guests.value+n))}
+function setG(n){guests.value=n}
+function summary(){
+let g=+guests.value,l=document.querySelector('input[name=loc]:checked'),f=document.querySelector('input[name=food]:checked'),t=+l.value+ +f.value*g,ex=[];
+if(pizza.checked){t+=15.9*g;ex.push('Pizza-Erlebnis')}if(grill.checked){t+=12.9*g;ex.push('Grill-Erlebnis')}
+let d=date.value?new Date(date.value+'T00:00:00').toLocaleDateString('de-DE'):'-';
+summary.innerHTML='<b>Ihre Auswahl</b><br><br><b>Gäste:</b> '+g+'<br><b>Datum:</b> '+d+'<br><b>Uhrzeit:</b> '+(time.value||'-')+' Uhr<br><b>Location:</b> '+l.dataset.name+'<br><b>Catering:</b> '+f.dataset.name+'<br><b>Extras:</b> '+(ex.join(', ')||'Keine')+'<div class="total">Vorläufige Kostenschätzung: '+t.toLocaleString('de-DE',{minimumFractionDigits:2})+' €</div><small>Unverbindliche Kostenschätzung. Das endgültige Angebot wird individuell abgestimmt.</small>'}
+function send(){if(!name.value.trim()||!phone.value.trim()||!email.value.trim()){error.textContent='Bitte alle Pflichtfelder ausfüllen.';return}error.textContent='';success.style.display='block'}
+document.querySelectorAll('.option').forEach(o=>o.addEventListener('click',e=>{let i=o.querySelector('input');if(e.target!==i)i.type==='checkbox'?i.checked=!i.checked:i.checked=true;if(i.type==='radio')document.querySelectorAll('input[name='+i.name+']').forEach(x=>x.closest('.option').classList.toggle('sel',x.checked));else o.classList.toggle('sel',i.checked)}));
+</script>
+</body>
+</html>
