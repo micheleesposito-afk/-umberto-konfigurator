@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Tischreservierung · Pizzeria Umberto Geldern</title>
+  <meta name="description" content="Reservierungsanfrage für die Pizzeria Umberto in Geldern.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root{--green:#21453b;--green-dark:#17352d;--gold:#c0a369;--cream:#f7f3ea;--ink:#1f2925;--muted:#68736e;--line:#d9d1c1}*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.55 "DM Sans",sans-serif}.page{min-height:100vh;display:grid;grid-template-columns:minmax(280px,.72fr) minmax(520px,1.28fr)}.intro{background:var(--green);color:white;padding:clamp(32px,6vw,86px);display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}.intro:after{content:"U";position:absolute;right:-25px;bottom:-105px;color:rgba(192,163,105,.09);font:600 20rem "Playfair Display",serif}.brand{display:flex;align-items:center;gap:13px;color:white;text-decoration:none;position:relative;z-index:1}.brand-mark{width:46px;height:46px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font:italic 600 1.8rem "Playfair Display",serif}.brand strong,.brand small{display:block;line-height:1}.brand strong{font-size:1.05rem;letter-spacing:.21em}.brand small{margin-top:6px;color:#cbd5d0;font-size:.66rem;letter-spacing:.16em}.intro-copy{position:relative;z-index:1;margin:80px 0}.eyebrow{margin:0 0 14px;color:var(--gold);font-size:.75rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase}.intro h1{margin:0;font:600 clamp(3rem,6vw,5.7rem)/.98 "Playfair Display",serif;letter-spacing:-.04em}.intro h1 em{display:block;color:var(--gold)}.intro-copy>p:last-child{max-width:470px;margin:25px 0 0;color:#dbe4e0;font-size:1.06rem}.facts{position:relative;z-index:1;display:grid;gap:12px}.fact{border-top:1px solid rgba(255,255,255,.19);padding-top:12px;display:flex;justify-content:space-between;gap:15px}.fact span{color:#cfdbd6}.form-side{padding:clamp(32px,6vw,82px);display:flex;align-items:center}.form-wrap{width:100%;max-width:780px;margin:auto}.form-wrap h2{margin:0;font:600 clamp(2.35rem,4vw,4rem)/1.05 "Playfair Display",serif;letter-spacing:-.035em}.lead{color:var(--muted);margin:14px 0 34px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:19px}.field{display:flex;flex-direction:column;gap:8px}.field.full{grid-column:1/-1}.field label{font-size:.91rem;font-weight:700}.required{color:#9c392d}input,select,textarea{width:100%;min-height:52px;border:1px solid var(--line);border-radius:9px;background:white;padding:13px 14px;color:var(--ink);font:inherit;outline:none;transition:.2s}textarea{min-height:116px;resize:vertical}input:focus,select:focus,textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(192,163,105,.2)}input:disabled,select:disabled{background:#ebe8e0;color:#8b8f8c}.hint{font-size:.78rem;color:var(--muted)}.consent{display:flex;align-items:flex-start;gap:10px;margin:22px 0;color:var(--muted);font-size:.84rem}.consent input{width:18px;min-height:18px;margin-top:2px;accent-color:var(--green)}.submit{width:100%;border:0;border-radius:9px;background:var(--gold);color:#172a24;padding:16px 20px;font-weight:800;font-size:1rem;cursor:pointer;transition:.2s}.submit:hover{background:#af9259;transform:translateY(-1px)}.notice{margin:18px 0 0;padding:15px;border-left:3px solid var(--gold);background:rgba(192,163,105,.12);font-size:.86rem;color:#55615c}.error{display:none;margin:0 0 20px;padding:13px 15px;background:#f7ded8;color:#76291f;border-radius:8px}.error.show{display:block}.back{color:#d6dfdb;text-decoration:none;font-size:.86rem;position:relative;z-index:1}@media(max-width:860px){.page{grid-template-columns:1fr}.intro{min-height:auto;padding:28px 22px 34px}.intro-copy{margin:55px 0 42px}.intro h1{font-size:3.5rem}.facts{max-width:520px}.form-side{padding:48px 22px 65px}.grid{grid-template-columns:1fr}.field.full{grid-column:auto}}@media(max-width:460px){.intro h1{font-size:3rem}.fact{flex-direction:column;gap:1px}.form-wrap h2{font-size:2.45rem}}
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="intro">
+      <a class="brand" href="index.html"><span class="brand-mark">U</span><span><strong>UMBERTO</strong><small>PIZZERIA · GELDERN</small></span></a>
+      <div class="intro-copy">
+        <p class="eyebrow">Benvenuti</p>
+        <h1>Ihr Tisch.<em>Ihr Abend.</em></h1>
+        <p>Schicken Sie uns Ihre Reservierungsanfrage. Wir melden uns persönlich bei Ihnen zurück.</p>
+      </div>
+      <div class="facts">
+        <div class="fact"><strong>Reservierungen</strong><span>Mittwoch–Sonntag</span></div>
+        <div class="fact"><strong>Uhrzeiten</strong><span>17:00–20:00 Uhr</span></div>
+        <div class="fact"><strong>Gruppengröße</strong><span>bis 25 Personen</span></div>
+      </div>
+      <a class="back" href="index.html">← Zurück zur Startseite</a>
+    </section>
+
+    <section class="form-side">
+      <div class="form-wrap">
+        <p class="eyebrow">Tischreservierung</p>
+        <h2>Reservierung anfragen</h2>
+        <p class="lead">Wählen Sie Ihren Wunschtermin. Felder mit <span class="required">*</span> sind erforderlich.</p>
+        <div class="error" id="form-error" role="alert"></div>
+        <form id="reservation-form" action="https://script.google.com/macros/s/AKfycbzgB7MlNtR8hGs_Cs6u06tdYirmlYsdg-Npb66-p_W50EvFrnj66ZWsr11KimBo2M9-bw/exec" method="post">
+          <div style="position:absolute;left:-9999px" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div>
+          <div class="grid">
+            <div class="field"><label for="date">Datum <span class="required">*</span></label><input id="date" name="date" type="date" required><span class="hint">Mittwoch bis Sonntag</span></div>
+            <div class="field"><label for="time">Uhrzeit <span class="required">*</span></label><select id="time" name="time" required><option value="">Bitte auswählen</option><option>17:00 Uhr</option><option>17:30 Uhr</option><option>18:00 Uhr</option><option>18:30 Uhr</option><option>19:00 Uhr</option><option>19:30 Uhr</option><option>20:00 Uhr</option></select></div>
+            <div class="field"><label for="guests">Personen <span class="required">*</span></label><select id="guests" name="guests" required><option value="">Bitte auswählen</option></select></div>
+            <div class="field"><label for="name">Name <span class="required">*</span></label><input id="name" name="name" autocomplete="name" required></div>
+            <div class="field"><label for="phone">Telefonnummer <span class="required">*</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required></div>
+            <div class="field"><label for="email">E-Mail-Adresse <span class="required">*</span></label><input id="email" name="email" type="email" autocomplete="email" required></div>
+            <div class="field full"><label for="message">Bemerkungen</label><textarea id="message" name="message" placeholder="Zum Beispiel: Kinderstuhl, Geburtstag oder gerne im Biergarten"></textarea></div>
+          </div>
+          <label class="consent"><input type="checkbox" name="privacy" required><span>Ich bin damit einverstanden, dass meine Angaben zur Bearbeitung der Reservierungsanfrage verwendet werden. <span class="required">*</span></span></label>
+          <button class="submit" type="submit">Reservierungsanfrage senden</button>
+          <p class="notice"><strong>Wichtig:</strong> Ihre Reservierung ist erst nach unserer persönlichen Bestätigung verbindlich.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+  <script>
+    const dateInput=document.querySelector('#date');
+    const guestSelect=document.querySelector('#guests');
+    const errorBox=document.querySelector('#form-error');
+    const today=new Date();today.setHours(0,0,0,0);dateInput.min=today.toISOString().split('T')[0];
+    for(let i=1;i<=25;i++){const o=document.createElement('option');o.value=i;o.textContent=i+(i===1?' Person':' Personen');guestSelect.appendChild(o)}
+    function validDay(value){if(!value)return false;const day=new Date(value+'T12:00:00').getDay();return day>=3&&day<=6||day===0}
+    dateInput.addEventListener('change',()=>{if(dateInput.value&&!validDay(dateInput.value)){dateInput.value='';errorBox.textContent='Reservierungen sind nur von Mittwoch bis Sonntag möglich.';errorBox.classList.add('show')}else errorBox.classList.remove('show')});
+    document.querySelector('#reservation-form').addEventListener('submit',async e=>{e.preventDefault();if(!validDay(dateInput.value)){errorBox.textContent='Bitte wählen Sie einen Termin zwischen Mittwoch und Sonntag.';errorBox.classList.add('show');return}const form=e.currentTarget;const button=form.querySelector('.submit');button.disabled=true;button.textContent='Wird gesendet …';errorBox.classList.remove('show');try{await fetch(form.action,{method:'POST',mode:'no-cors',body:new FormData(form)});form.innerHTML='<div class="form-success"><p class="eyebrow">Vielen Dank</p><h2>Anfrage gesendet</h2><p>Ihre Reservierungsanfrage wurde übermittelt. Die Reservierung ist erst nach unserer persönlichen Bestätigung verbindlich.</p></div>'}catch(error){errorBox.textContent='Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut.';errorBox.classList.add('show');button.disabled=false;button.textContent='Reservierungsanfrage senden'}});
+  </script>
+</body>
+</html>
